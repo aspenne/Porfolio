@@ -2,17 +2,182 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 
-body{
+/***************** header section *****************/
+
+header{
     color: #fff;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    min-height: 100vh;
-    background-color: black;
+    max-height: 100vh;
+    background-color: #000;
+    z-index: 3;
+    overflow: hidden;
 }
+
+/***************** matrice *****************/
+
+.matrice{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    top: 0vh;
+    width: 100%;
+    height: 0vh;
+    color: #fff;
+    background-color: #000;
+    animation: droping 2s linear infinite;
+}
+
+.matrice div{
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+
+.matrice::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+@keyframes droping{
+    0%{
+        top: -10vh;
+    }
+    100%{
+        top: 100vh;
+    }
+}
+
+/***************** 1st header section *****************/
+
+/***** card *****/
+
+div.card{
+    position: relative;
+    width: 30%;
+    height: 300px;
+    background-color: #fff;
+    transition: 0.5s;
+}
+
+div.card:hover{
+    height: 450px;
+}
+
+div.card div.line{
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    overflow: hidden;
+}
+
+div.card div.line::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 120px;
+    background: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    animation: turning 5s linear infinite;
+}
+
+div.card div.line::after{
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: #333;
+    filter: brightness(0.5);
+}
+
+/***** img-box *****/
+
+div.card div.img-box{
+    position: absolute;
+    top: -25%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    transition: 0.5s;
+    z-index: 1;
+    overflow: hidden;
+    position: absolute;
+    background-color: #000;
+    overflow: hidden;
+}
+
+div.card:hover div.img-box{
+    top: 10%;
+}
+
+
+div.card div.img-box::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 80px;
+    background: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    animation: turning 5s linear infinite;
+}
+
+div.card div.img-box::after{
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: #333;
+}
+
+div.card div.img-box img{
+    z-index: 1;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+}
+
+/**** animation ****/
+
+@keyframes turning{
+    0%{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/***** content *****/
+
+div.card div.content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/***************** 2nd header section *****************/
 
 ul{
     position: relative;
@@ -32,6 +197,7 @@ ul li{
     margin-bottom: 50px;
     transition: 0.5s;
     z-index: calc(1 * var(--i));
+    cursor: pointer;
 }
 
 ul li:hover{
@@ -96,7 +262,8 @@ ul li:last-child::after{
     box-shadow: -120px 120px 20px rgba(0, 0, 0, 0.25);
 }
 
-body hr{
+header hr{
     height: 100vh;
     box-shadow: 0 0 20px rgba(255, 255, 255, 1);
 }
+
