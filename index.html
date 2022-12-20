@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="matrice"></div>
+    <div class="white_point"></div>
     <header>
         <div class="card">
         <div class="line"></div>
@@ -17,12 +17,19 @@
         </div> 
         <div class="content">
             <h2>Hi, I'm Axel Michelo</h2>
-            <p>Web developer</p>
-            <p>Based in Paris</p>
+            <p class="typing"> <span class = "typed"></span></p>
+            <div class="invisible" style="display: none;">
+                <ul>
+                    <li> I'm student at the iut of lannion</li>
+                    <li> I live at louannec next to lannion</li>
+                    <li> I'm studying computer science</li>
+                    <li> I would like to work in cyber security or IA</li>
+                </ul>
+            </div>
         </div>
         </div>
         <hr>
-        <ul>
+        <ul class="nav_btn">
             <!-- I use the css var i for the z-index and the var color for the block color -->
             <li style="--i:1; --color:#fff"><a href="#">About me</a></li>
             <li style="--i:2; --color:#fff"><a href="#">Projects</a></li>
@@ -33,5 +40,6 @@
 </body>
 <footer>
 </footer>
-    <script src="script.js"></script>
+    <script src="./js_lib/typed.js"></script>
+    <script src="./script.js"></script>
 </html>
