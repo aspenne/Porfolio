@@ -3,6 +3,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/***************** body *****************/
+
+body{
+    background-color: #000;
+    scroll-behavior: smooth;
 }
 
 /***************** header section *****************/
@@ -19,42 +27,6 @@ header{
     overflow: hidden;
 }
 
-/***************** matrice *****************/
-
-.matrice{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    top: 0vh;
-    width: 100%;
-    height: 0vh;
-    color: #fff;
-    background-color: #000;
-    animation: droping 2s linear infinite;
-}
-
-.matrice div{
-    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
-}
-
-.matrice::after{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-}
-
-@keyframes droping{
-    0%{
-        top: -10vh;
-    }
-    100%{
-        top: 100vh;
-    }
-}
 
 /***************** white point *****************/
 
@@ -336,4 +308,159 @@ header hr{
     height: 100vh;
     box-shadow: 0 0 20px rgba(255, 255, 255, 1);
 }
+
+/***************** main *****************/
+
+/***************** About me *****************/
+
+main div.banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 5em;
+    text-transform: uppercase;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    height: 200px;
+    transition: 1s;
+}
+
+main div.banner:hover{
+    letter-spacing: 30px;
+    background: #fff;
+    color: #000;
+    text-shadow: 0 0 20px #000;
+}
+
+
+main section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    margin: 50px 0px;
+    transition: 1s;
+}
+
+main section article.first{
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 30px;
+    width: 60%;
+}
+
+main section article.first h2{
+    font-size: 2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-left: 5%;
+    padding-top: 10px;
+}
+
+main section article.first img{
+    border-radius: 20px;
+    float: left;
+    margin: 10px;
+    margin-left: 5%;
+    width: 200px;
+    height: 200px;
+}
+
+main section article.first p{
+    font-size: 1.2em;
+    padding: 20px 20px 20px 0px;
+    margin-left: 5%;
+    line-height: 30px;
+}
+
+main section article.first p span.text_important{
+    margin: 10px;
+    animation: shinig 2s infinite;
+    transition: 1s;
+}
+
+main section article.first ul{
+    display: flex;
+    flex-direction: column;
+}
+
+main section article.first li{
+    list-style: none;
+    margin-left: 5%;
+    font-size: 1.2em;
+}
+
+@keyframes shinig {
+    0%{
+        text-shadow: 0 0 20px #fff;
+    }
+    50%{
+        text-shadow: 0 0 0px #fff;
+    }
+    100%{
+        text-shadow: 0 0 20px #fff;
+    }
+}
+
+main section article.first p span:hover{
+    background-color: white;
+    color: #000;
+    border-radius: 10px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+main section article.second{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 10px;
+    height: 500px;
+    width: 500px;
+}
+
+main section article.second img{
+    width: 400px;
+    height: 400px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    object-fit: cover;
+}
+
+@keyframes apparing {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes disapparing {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+main section article.second figcaption{
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    text-align: center;
+}
+
 

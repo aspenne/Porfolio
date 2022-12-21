@@ -13,7 +13,7 @@
         <div class="card">
         <div class="line"></div>
         <div class="img-box">
-            <img src="./images/profil_pic.jpeg" alt="">
+            <img src="./images/profil_pic.jpeg" alt="picture of a representation of me">
         </div> 
         <div class="content">
             <h2>Hi, I'm Axel Michelo</h2>
@@ -31,15 +31,50 @@
         <hr>
         <ul class="nav_btn">
             <!-- I use the css var i for the z-index and the var color for the block color -->
-            <li style="--i:1; --color:#fff"><a href="#">About me</a></li>
-            <li style="--i:2; --color:#fff"><a href="#">Projects</a></li>
-            <li style="--i:3; --color:#fff"><a href="#">Cv</a></li>
-            <li style="--i:4; --color:#fff"><a href="#">Contact</a></li>
+            <li class="button1" style="--i:1; --color:#fff"><a>About me</a></li>
+            <li class="button2" style="--i:2; --color:#fff"><a>Projects</a></li>
+            <li class="button3" style="--i:3; --color:#fff"><a>Cv</a></li>
+            <li class="button4" style="--i:4; --color:#fff"><a>Contact</a></li>
         </ul>
     </header>
-</body>
-<footer>
-</footer>
+    <main>
+        <div id="about" class="banner"> About me</div>
+            <section>
+                <article class="first">
+                    <h2> Axel Michelo </h2>
+                        <img src="./images/profil_pic.jpeg" alt="picture of a representation of me">
+                        <p> Hello my name is axel michelo, I am 19 years old I live in <span class="text_important louannec">Louannec</span> in the north of Brittany in France.<br>
+                             I am a student at the IUT of Lannion, in the second year of studies in computer science and more particularly 
+                            with the specialty "Data management and exploitation administration".<br>
+                            In everyday life what I like is :
+                        </p>
+                        <ul>
+                            <li>- anime</li>
+                            <li>- manga</li>
+                            <li>- winter</li>
+                            <li>- basketball</li> 
+                            <li>- video games</li>
+                        </ul>
+
+                        <p> I am also passionate about <span class="text_important computer_science">computer science</span>, since 4/5 years.
+                            I discovered it in high school and since then I feel a lot of pleasure whether in my studies, in videos on any subject or even in projects whether it is school or personal !<br>
+                            Later I wish I could work in the cybersecurity sector or even in the sector of artificial intelligence, the sector of IT is very varied I do not worry! I know that the cyber sector and 
+                            I would also like getting a job in this sector because the threat of cybercrime will become more and more important in the coming years.<br>
+                            I also talked about intelligence artificial, indeed I am more and more interested in this area and especially since the arrival of technologies like <span class="text_important github_copilot">"Github copilot"</span>, <span class="text_important chat_gpt">"Chat GPT"</span>, <span class="text_important dall_e">"Dall-E"</span>... I was very impressed with the progress that these technologies. <br> 
+                            That's why I am interested in this like I am in cybersecurity. To finish later I would love to travel and why not also as part of my work, change 
+                            does not frighten me and I would love to discover completely new environments to exceed my limits. To conclude I am still a young developer who has great ambitions for the future !!!
+                        </p>
+                </article>
+                <article class="second">
+                    <img class="img_text"src="" alt="an image representate the text hover">
+                    <figcaption><span class="to_type"></span></figcaption>
+                </article>
+            </section>
+            <div id="projects" class="banner"> Projects</div>
+    </main>
+    </body>
+    <footer>
+    </footer>
     <script src="./js_lib/typed.js"></script>
     <script src="./script.js"></script>
 </html>
