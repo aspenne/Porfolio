@@ -456,12 +456,35 @@ main section.about_me article.second img.img_text{
 }
 
 main section.about_me article.second figcaption{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 1.2em;
     text-transform: uppercase;
     letter-spacing: 15px;
     text-align: center;
 }
+
+main section.about_me article.second div.letter_box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@keyframes up_to_down {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+
+
 
 /***************** Projects *****************/
 
@@ -496,6 +519,7 @@ main section.projects section.project{
     gap: 20px;
     color: #fff;
     width: 100%;
+    overflow: hidden;
 }
 
 /***************** Project 1st box *****************/
@@ -570,21 +594,21 @@ main section.projects article.img_box{
     border: 2px solid #fff;
     border-radius: 20px;
     padding: 10px;
-    height: 500px;
+    height: 600px;
     width: 500px;
     overflow: hidden;
     position: relative;
 }
 
 main section.projects article img{
-    width: 400px;
-    height: 400px;
+    width: 90%;
+    height: 80%;
     border: 1px solid #fff;
     border-radius: 20px;
     padding: 10px;
     margin: 10px;
     object-fit: cover;
-    z-index: -1;
+    cursor: pointer;
 }
 
 @keyframes translate-to-top {
