@@ -236,7 +236,7 @@ ul.nav_btn li{
     width: 160px;
     background-color: #333;
     padding: 15px;
-    margin-bottom: 50px;
+    margin-bottom: 75px;
     transition: 0.5s;
     z-index: calc(1 * var(--i));
     cursor: pointer;
@@ -335,7 +335,7 @@ main div.banner:hover{
 }
 
 
-main section{
+main section.about_me{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -346,15 +346,16 @@ main section{
     transition: 1s;
 }
 
-main section article.first{
+main section.about_me article.first{
     border: 2px solid #fff;
     border-radius: 20px;
     padding: 10px;
     margin-top: 30px;
+    margin-left: 30px;
     width: 60%;
 }
 
-main section article.first h2{
+main section.about_me article.first h2{
     font-size: 2em;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -362,7 +363,7 @@ main section article.first h2{
     padding-top: 10px;
 }
 
-main section article.first img{
+main section.about_me article.first img{
     border-radius: 20px;
     float: left;
     margin: 10px;
@@ -371,25 +372,24 @@ main section article.first img{
     height: 200px;
 }
 
-main section article.first p{
+main section.about_me article.first p{
     font-size: 1.2em;
     padding: 20px 20px 20px 0px;
     margin-left: 5%;
     line-height: 30px;
 }
 
-main section article.first p span.text_important{
-    margin: 10px;
+main section.about_me article.first span.text_important{
     animation: shinig 2s infinite;
     transition: 1s;
 }
 
-main section article.first ul{
+main section.about_me article.first ul{
     display: flex;
     flex-direction: column;
 }
 
-main section article.first li{
+main section.about_me article.first li{
     list-style: none;
     margin-left: 5%;
     font-size: 1.2em;
@@ -407,7 +407,7 @@ main section article.first li{
     }
 }
 
-main section article.first p span:hover{
+main section.about_me article.first span:hover{
     background-color: white;
     color: #000;
     border-radius: 10px;
@@ -415,7 +415,7 @@ main section article.first p span:hover{
     cursor: pointer;
 }
 
-main section article.second{
+main section.about_me article.second{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -427,7 +427,7 @@ main section article.second{
     width: 500px;
 }
 
-main section article.second img{
+main section.about_me article.second img.img_text{
     width: 400px;
     height: 400px;
     border: 1px solid #fff;
@@ -455,7 +455,7 @@ main section article.second img{
     }
 }
 
-main section article.second figcaption{
+main section.about_me article.second figcaption{
     margin-bottom: 10px;
     font-size: 1.2em;
     text-transform: uppercase;
@@ -463,4 +463,174 @@ main section article.second figcaption{
     text-align: center;
 }
 
+/***************** Projects *****************/
 
+main section.projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    color: #fff;
+    margin: 50px 0px;
+    transition: 1s;
+}
+
+main section.projects article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 10px;
+    transition: 1s;
+}
+
+main section.projects section.project{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    color: #fff;
+    width: 100%;
+}
+
+/***************** Project 1st box *****************/
+
+main section.projects article.slide_left{
+    transform: translateX(-100%);
+    float: left;
+    margin-left: 30px;
+    width: 60%;
+}
+
+main section.projects article.slide_right{
+    transform: translateX(+100%);
+    float: right;
+    margin-right: 30px;
+    width: 60%;
+}
+
+main section.projects article.left_apparition{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+main section.projects article.reverse_left{
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+main section.projects article.right_apparition{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+main section.projects article.reverse_right{
+    transform: translateX(+100%);
+    opacity: 0;
+}
+
+/***************** Project 2nd box *****************/
+
+main section.projects section.project div.btn_box button{
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    background: transparent;
+    color: #fff;
+    transition: 1s;
+}
+
+main section.projects section.project div.btn_box{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 85%;
+}
+
+main section.projects section.project div.btn_box button:hover{
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+main section.projects article.img_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 10px;
+    height: 500px;
+    width: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+main section.projects article img{
+    width: 400px;
+    height: 400px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    object-fit: cover;
+    z-index: -1;
+}
+
+@keyframes translate-to-top {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-120%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes translate-to-bottom {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(+120%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes translate-to-right {
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(+120%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes translate-to-left {
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(-120%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
