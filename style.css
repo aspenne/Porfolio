@@ -616,7 +616,7 @@ main section.projects article img{
         transform: translateY(0);
     }
     50%{
-        transform: translateY(-120%);
+        transform: translateY(-150%);
     }
     100%{
         transform: translateY(0);
@@ -628,7 +628,7 @@ main section.projects article img{
         transform: translateY(0);
     }
     50%{
-        transform: translateY(+120%);
+        transform: translateY(+150%);
     }
     100%{
         transform: translateY(0);
@@ -640,7 +640,7 @@ main section.projects article img{
         transform: translateX(0);
     }
     50%{
-        transform: translateX(+120%);
+        transform: translateX(+150%);
     }
     100%{
         transform: translateX(0);
@@ -652,7 +652,7 @@ main section.projects article img{
         transform: translateX(0);
     }
     50%{
-        transform: translateX(-120%);
+        transform: translateX(-150%);
     }
     100%{
         transform: translateX(0);
