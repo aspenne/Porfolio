@@ -575,3 +575,87 @@ function change_size_image(img_box, image, content, btn_box){
     temp_full_size = false
 
 }
+
+
+/************** appartition list in cv part *****************/
+
+var last_liste_temp;
+
+function change_cv_color(article) {
+    const className = article.className;
+    const img = document.querySelector('.cv_image');
+    const liste = article.lastElementChild;
+
+    // for the list 
+    if (last_liste_temp != undefined) {
+        if (last_liste_temp.style.animation == ('1s ease 0s 1 normal none running close-show')) {
+            last_liste_temp.style.animation = ('');
+            // i just need to wait a little bit to have the animation
+            setTimeout(() => {
+                last_liste_temp.style.animation = '1s close-show ease';
+            }, 0001);
+
+            setTimeout(() => {
+                last_liste_temp.style.borderColor = '#fff';
+            }, 500);
+        }
+    }
+
+    setTimeout(() => {
+        last_liste_temp = liste;
+    }, 500);
+
+
+    
+    liste.style.animation = '1s close-show ease';
+
+    // for the image
+
+    if (img.style.animation == ('1s ease 0s 1 normal none running close-show')) {
+        img.style.animation = ('');
+    }
+    // i just need to wait a little bit to have the animation
+    setTimeout(() => {
+        img.style.animation = '1s close-show ease';
+    }, 0001);
+
+    // for the image and the list
+
+    setTimeout(() => {
+
+    switch (className) {
+        case 'cv_about':
+            img.src = 'images/CV/MICHELO_AXEL_CV_ANGLAIS_About.jpg';
+            break;
+        case 'cv_skills':
+            img.src = 'images/CV/MICHELO_AXEL_CV_ANGLAIS_Skills.jpg';
+            break;
+        case 'cv_training':
+            img.src = 'images/CV/MICHELO_AXEL_CV_ANGLAIS_Training.jpg';
+            break;
+        case 'cv_projects':
+            img.src = 'images/CV/MICHELO_AXEL_CV_ANGLAIS_Projects.jpg';
+            break;
+        case 'cv_work':
+            img.src = 'images/CV/MICHELO_AXEL_CV_ANGLAIS_Work.jpg';
+            break;
+        case 'cv_contact':
+            img.src = 'images/CV/MICHELO_AXEL_CV_ANGLAIS_Contact.jpg';
+            break;
+        case 'cv_interests':
+            img.src = 'images/CV/MICHELO_AXEL_CV_ANGLAIS_Personnal_interests.jpg';
+            break;
+        case 'cv_soft':
+            img.src = 'images/CV/MICHELO_AXEL_CV_ANGLAIS_Soft.jpg';
+            break;
+        case 'cv_language':
+            img.src = 'images/CV/MICHELO_AXEL_CV_Anglais_Language.jpg';
+            break;
+    }
+
+    liste.style.borderColor = 'red';
+
+    }, 500);
+    
+        
+};
