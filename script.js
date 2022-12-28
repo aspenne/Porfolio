@@ -659,3 +659,25 @@ function change_cv_color(article) {
     
         
 };
+
+/************** Contact form *****************/
+
+function sendMail(){
+    var params = {
+        name : document.querySelector('#name').value,
+        email : document.querySelector('#email').value,
+        message : document.querySelector('#message').value
+    };
+    const serviceID = 'service_a58ipoq';
+    const templateID = 'template_1qgda2m';
+
+    emailjs.send(serviceID, templateID, params).then((res) => {
+        document.querySelector('#name').value = '';
+        document.querySelector('#email').value = '';
+        document.querySelector('#message').value = '';
+        console.log('success', res.status);
+        }).catch((err) => {
+            console.log('failed', err);
+    });
+}
+
