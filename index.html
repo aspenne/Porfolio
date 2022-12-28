@@ -206,10 +206,22 @@
                 </section>
             </section>
         <div id="contact" class="banner"> Contact</div>
+            <section class="contact">
+                <input type="text"  id="name">
+                <input type="email" id="mail">
+                <textarea rows="5"  id="message"> </textarea>
+                <button onclick="sendMail()" > send mail </button>
+            </section>
     </main>
     </body>
     <footer>
     </footer>
     <script src="./js_lib/typed.js"></script>
     <script src="./script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("DiZ3ebK4lvdgvnDpw");
+    })();
+    </script>
 </html>

@@ -665,15 +665,15 @@ function change_cv_color(article) {
 function sendMail(){
     var params = {
         name : document.querySelector('#name').value,
-        email : document.querySelector('#email').value,
+        email : document.querySelector('#mail').value,
         message : document.querySelector('#message').value
     };
-    const serviceID = 'service_a58ipoq';
+    const serviceID = 'service_u6pev8m';
     const templateID = 'template_1qgda2m';
 
     emailjs.send(serviceID, templateID, params).then((res) => {
         document.querySelector('#name').value = '';
-        document.querySelector('#email').value = '';
+        document.querySelector('#mail').value = '';
         document.querySelector('#message').value = '';
         console.log('success', res.status);
         }).catch((err) => {
