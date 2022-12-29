@@ -660,24 +660,233 @@ function change_cv_color(article) {
         
 };
 
+/************** name validation *****************/
+
+var name_input = document.querySelector('#name');
+var span_name = document.querySelector('#name + span');
+
+//name_input.addEventListener("focus", () => focusInput(name_input, span_name));
+
+name_input.addEventListener("input", () => emptyInput(name_input, span_name));
+
+name_input.addEventListener("blur", () => emptyBlur(name_input, span_name));
+
+/************** Lastname validation *****************/
+
+var lastname = document.querySelector('#lastname');
+var span_lastname = document.querySelector('#lastname + span');
+
+//lastname.addEventListener("focus", () => focusInput(lastname, span_lastname));
+
+lastname.addEventListener("input", () => emptyInput(lastname, span_lastname));
+
+lastname.addEventListener("blur", () => emptyBlur(lastname, span_lastname));
+
+
+
+/************** function validation *****************/
+
+function emptyInput(input, span) {
+    if (input.value.length <= 2) {
+        input.style.borderColor = 'red';
+        span.style.borderColor = 'red';
+        span.style.color = 'red';
+    }
+    else {
+        input.style.borderColor = 'green';
+        span.style.borderColor = 'green';
+        span.style.color = 'green';
+    }
+};
+
+function emptyBlur(input, span) {
+    if (input.value.length <= 2) {
+        input.style.borderColor = 'red';
+        span.style.borderColor = 'red';
+        span.style.color = 'red';
+    }
+    else {
+        input.style.borderColor = 'green';
+        span.style.borderColor = 'green';
+        span.style.color = 'green';
+    }
+};
+
+function focusInput(input, span) {
+    if ( input.value.length >= 2){
+        input.style.borderColor = '#fff';
+        span.style.borderColor = '#fff';
+        span.style.color = '#fff';
+    }
+}
+
+
+/************** mail validation *****************/
+
+var mail = document.querySelector('#mail');
+var span_mail = document.querySelector('#mail + span');
+
+//mail.addEventListener("focus", () => emptyInput(mail, span_mail));
+
+mail.addEventListener("input", validateMailInput);
+
+mail.addEventListener("blur", validateMailBlur);
+
+function validateMailBlur() {
+    var mail_value = document.querySelector('#mail').value;
+    var mail_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    var mail_valid = mail_regex.test(mail_value);
+    if (mail_valid == false && mail_value.length > 0) {
+        mail.style.borderColor = 'red';
+        span_mail.style.borderColor = 'red';
+        span_mail.style.color = 'red';
+    }
+    if (mail_valid != false && mail_value != '') {
+        mail.style.borderColor = 'green';
+        span_mail.style.borderColor = 'green';
+        span_mail.style.color = 'green';
+    }
+}
+
+// the user is not forced to wait for the blur event to validate the mail
+function validateMailInput() {
+    var mail_value = document.querySelector('#mail').value;
+    var mail_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    var mail_valid = mail_regex.test(mail_value);
+    if (mail_valid != false) {
+        mail.style.borderColor = 'green';
+        span_mail.style.borderColor = 'green';
+        span_mail.style.color = 'green';
+    }
+    if ( mail_valid == false) {
+        mail.style.borderColor = 'red';
+        span_mail.style.borderColor = 'red';
+        span_mail.style.color = 'red';
+    }
+}
+
+/************** message validation *****************/
+
+var message = document.querySelector('#message');
+
+message.addEventListener("input", () => {
+    if (message.value.length <= 2) {
+        message.style.borderColor = 'red';
+    }
+    else {
+        message.style.borderColor = 'green';
+    }
+});
+
+message.addEventListener("blur", () => {
+    if (message.value.length <= 2) {
+        message.style.borderColor = 'red';
+    }
+    else {
+        message.style.borderColor = 'green';
+    }
+});
+
+/************** Contact form validation *****************/
+
+var submit_button = document.getElementById("submit");
+var alert_message = document.getElementById("alert_message");
+// serve when the user click on the submit button to not change the color of each element
+var temp = false;
+var helping_message = "all the fields must be filled  !"
+
+function valid_button(){
+    if (temp == false){
+        if (name_input.style.borderColor == 'green' && lastname.style.borderColor == 'green' && span_mail.style.color == 'green' && message.style.borderColor == 'green') {
+            submit_button.style.borderColor = 'green';
+            submit_button.style.color = 'green';
+            alert_message.style.color = 'green';
+            if (alert_message.innerHTML == helping_message) {
+                alert_message.classList.add('d-none');
+                setTimeout(() =>{
+                    alert_message.innerHTML = '';
+                    alert_message.classList.remove('d-none');
+                }, 1000);
+
+            }
+        }
+        else {
+            submit_button.style.borderColor = 'red';
+            submit_button.style.color = 'red';
+            alert_message.style.color = 'red';
+        }
+    }
+}
+
+setInterval(valid_button, 100);
+
+
 /************** Contact form *****************/
 
-function sendMail(){
-    var params = {
-        name : document.querySelector('#name').value,
-        email : document.querySelector('#mail').value,
-        message : document.querySelector('#message').value
-    };
-    const serviceID = 'service_u6pev8m';
-    const templateID = 'template_1qgda2m';
 
-    emailjs.send(serviceID, templateID, params).then((res) => {
-        document.querySelector('#name').value = '';
-        document.querySelector('#mail').value = '';
-        document.querySelector('#message').value = '';
-        console.log('success', res.status);
-        }).catch((err) => {
-            console.log('failed', err);
-    });
+
+function sendMail(){
+
+
+    if (submit_button.style.borderColor == 'green' && submit_button.style.color == 'green') {
+
+        temp = true;
+
+        alert_message.style.color = 'green';
+
+        setTimeout(() => {
+            alert_message.innerHTML = 'Your message has been sent to axel !';
+        }, 500);
+
+        setTimeout(() => {
+            alert_message.classList.add('d-none');
+        }, 1500);
+
+        setTimeout(() => {
+            alert_message.classList.remove('d-none');
+            alert_message.textContent = '';
+            name_input.value = '';
+                name_input.style.borderColor = '#fff';
+                span_name.style.borderColor = '#fff';
+                span_name.style.color = '#fff';
+            lastname.value = '';
+                lastname.style.borderColor = '#fff';
+                span_lastname.style.borderColor = '#fff';
+                span_lastname.style.color = '#fff';
+            mail.value = '';
+                mail.style.borderColor = '#fff';
+                span_mail.style.borderColor = '#fff';
+                span_mail.style.color = '#fff';
+            message.value = '';
+                message.style.borderColor = '#fff';
+            temp = false;
+        }, 2500);
+        
+
+        var params = {
+            name : document.querySelector('#name').value,
+            lastname : document.querySelector('#lastname').value,
+            mail : document.querySelector('#mail').value,
+            message : document.querySelector('#message').value
+        };
+        const serviceID = 'service_u6pev8m';
+        const templateID = 'template_1qgda2m';
+
+        emailjs.send(serviceID, templateID, params).then((res) => {
+            document.querySelector('#name').value = '';
+            document.querySelector('#lastname').value = '';
+            document.querySelector('#mail').value = '';
+            document.querySelector('#message').value = '';
+            console.log('success', res.status);
+            }).catch((err) => {
+                console.log('failed', err);
+        });
+
+    }
+
+    else {
+        alert_message.style.color = 'red';
+        alert_message.innerHTML = helping_message;
+    }
 }
 
