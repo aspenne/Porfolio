@@ -665,7 +665,7 @@ function change_cv_color(article) {
 var name_input = document.querySelector('#name');
 var span_name = document.querySelector('#name + span');
 
-//name_input.addEventListener("focus", () => focusInput(name_input, span_name));
+name_input.addEventListener("focus", () => focusInput(name_input, span_name));
 
 name_input.addEventListener("input", () => emptyInput(name_input, span_name));
 
@@ -676,7 +676,7 @@ name_input.addEventListener("blur", () => emptyBlur(name_input, span_name));
 var lastname = document.querySelector('#lastname');
 var span_lastname = document.querySelector('#lastname + span');
 
-//lastname.addEventListener("focus", () => focusInput(lastname, span_lastname));
+lastname.addEventListener("focus", () => focusInput(lastname, span_lastname));
 
 lastname.addEventListener("input", () => emptyInput(lastname, span_lastname));
 
@@ -686,6 +686,13 @@ lastname.addEventListener("blur", () => emptyBlur(lastname, span_lastname));
 
 /************** function validation *****************/
 
+function focusInput(input, span) {
+    if ( input.value.length == 0){
+        input.style.borderColor = '#fff';
+        span.style.borderColor = '#fff';
+        span.style.color = '#fff';
+    }
+}
 function emptyInput(input, span) {
     if (input.value.length <= 2) {
         input.style.borderColor = 'red';
@@ -700,7 +707,12 @@ function emptyInput(input, span) {
 };
 
 function emptyBlur(input, span) {
-    if (input.value.length <= 2) {
+    if (input.value == "") {
+        input.style.borderColor = 'rgba(255, 255, 255, 0.250)';
+        span.style.borderColor = 'rgba(255, 255, 255, 0.250)';
+        span.style.color = 'rgba(255, 255, 255, 0.250)';
+    }
+    else if (input.value.length <= 2) {
         input.style.borderColor = 'red';
         span.style.borderColor = 'red';
         span.style.color = 'red';
@@ -712,30 +724,27 @@ function emptyBlur(input, span) {
     }
 };
 
-function focusInput(input, span) {
-    if ( input.value.length >= 2){
-        input.style.borderColor = '#fff';
-        span.style.borderColor = '#fff';
-        span.style.color = '#fff';
-    }
-}
-
 
 /************** mail validation *****************/
 
 var mail = document.querySelector('#mail');
 var span_mail = document.querySelector('#mail + span');
 
-//mail.addEventListener("focus", () => emptyInput(mail, span_mail));
+mail.addEventListener("focus", () => focusInput(mail, span_mail));
 
 mail.addEventListener("input", validateMailInput);
 
 mail.addEventListener("blur", validateMailBlur);
 
 function validateMailBlur() {
-    var mail_value = document.querySelector('#mail').value;
+    var mail_value = mail.value;
     var mail_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     var mail_valid = mail_regex.test(mail_value);
+    if (mail_value == "") {
+        mail.style.borderColor = 'rgba(255, 255, 255, 0.250)';
+        span_mail.style.borderColor = 'rgba(255, 255, 255, 0.250)';
+        span_mail.style.color = 'rgba(255, 255, 255, 0.250)';
+    }
     if (mail_valid == false && mail_value.length > 0) {
         mail.style.borderColor = 'red';
         span_mail.style.borderColor = 'red';
@@ -769,6 +778,12 @@ function validateMailInput() {
 
 var message = document.querySelector('#message');
 
+message.addEventListener("focus", () => {
+    if (message.value.length == 0){
+        message.style.borderColor = '#fff';
+    }
+});
+
 message.addEventListener("input", () => {
     if (message.value.length <= 2) {
         message.style.borderColor = 'red';
@@ -781,6 +796,9 @@ message.addEventListener("input", () => {
 message.addEventListener("blur", () => {
     if (message.value.length <= 2) {
         message.style.borderColor = 'red';
+    }
+    if (message.value.length == 0) {
+        message.style.borderColor = 'rgba(255, 255, 255, 0.250)';
     }
     else {
         message.style.borderColor = 'green';

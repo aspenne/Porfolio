@@ -796,7 +796,7 @@ main section.contact article div#inputBox3{
 main section.contact article div.inputBox input{
     width: 100%;
     padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.164);
+    border: 1px solid rgba(255, 255, 255, 0.250);
     background-color: transparent;
     border-radius: 5px;
     outline: none;
@@ -830,11 +830,12 @@ main section.contact article div.inputBox input:focus{
     border: 1px solid #fff;
 }
 
+
 main section.contact textarea{
     width: 100%;
     height: 100px;
     padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.164);
+    border: 1px solid rgba(255, 255, 255, 0.250);
     background-color: transparent;
     border-radius: 5px;
     outline: none;
