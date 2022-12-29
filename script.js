@@ -60,7 +60,7 @@ function white() {
 function deleteWhite() {
     const white = document.querySelectorAll(".white");
 
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 10; i++) {
         white[i].remove();
     }
 }
