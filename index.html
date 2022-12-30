@@ -10,32 +10,36 @@
 <body>
     <div class="white_point"></div>
     <header>
-        <div class="card">
-        <div class="line"></div>
-        <div class="img-box">
-            <img src="./images/profil_pic.jpeg" alt="picture of a representation of me">
-        </div> 
-        <div class="content">
-            <h2>Hi, I'm Axel Michelo</h2>
-            <p class="typing"> <span class = "typed"></span></p>
-            <div class="invisible" style="display: none;">
-                <ul>
-                    <li> I'm student at the iut of lannion</li>
-                    <li> I live at louannec next to lannion</li>
-                    <li> I'm studying computer science</li>
-                    <li> I would like to work in cyber security or IA</li>
-                </ul>
+        <section class="header_right">
+            <div class="card">
+            <div class="line"></div>
+            <div class="img-box">
+                <img src="./images/profil_pic.jpeg" alt="picture of a representation of me">
+            </div> 
+            <div class="content">
+                <h2>Hi, I'm Axel Michelo</h2>
+                <p class="typing"> <span class = "typed"></span></p>
+                <div class="invisible" style="display: none;">
+                    <ul>
+                        <li> I'm student at the iut of lannion</li>
+                        <li> I live at louannec next to lannion</li>
+                        <li> I'm studying computer science</li>
+                        <li> I would like to work in cyber security or IA</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        </div>
+            </div>
+        </section>
         <hr>
-        <ul class="nav_btn">
-            <!-- I use the css var i for the z-index and the var color for the block color -->
-            <li class="button1" style="--i:1; --color:#fff"><a>About me</a></li>
-            <li class="button2" style="--i:2; --color:#fff"><a>Projects</a></li>
-            <li class="button3" style="--i:3; --color:#fff"><a>Cv</a></li>
-            <li class="button4" style="--i:4; --color:#fff"><a>Contact</a></li>
-        </ul>
+        <section class="header_left">
+            <ul class="nav_btn">
+                <!-- I use the css var i for the z-index and the var color for the block color -->
+                <li class="button1" style="--i:1; --color:#fff"><a>About me</a></li>
+                <li class="button2" style="--i:2; --color:#fff"><a>Projects</a></li>
+                <li class="button3" style="--i:3; --color:#fff"><a>Cv</a></li>
+                <li class="button4" style="--i:4; --color:#fff"><a>Contact</a></li>
+            </ul>
+        </section>
     </header>
     <main>
         <div id="about" class="banner"> About me</div>
@@ -83,11 +87,46 @@
         <div id="projects" class="banner"> Projects</div>
             <section class="projects">
                 <section id="project1" class="project">
-                    <article class="slide_left">
-                        <p> test</p>
-                    </article>
+                    <section class="slide_left">
+                        <h2> <a target="_blank" href="https://github.com/aspenne/Regalouzz"> Regalouzz</a></h2>
+                        <article>
+                                <h3> Description</h3>
+                                <p> School project in my second year of studies in computer science.<br>
+                                    This project involves the creation of an e-commerce website. <br>
+                                    To do this I had to take part in the front and back development of the site and I was also personally responsible for setting up the project on a web server.<br>
+                                    I configured it (setting up apache as well as postgresql). <br>
+                                    We carried out this project using the Scrum agile method of which I was the scrum master.<br> 
+                                    So I also had to present this project to the client and animate daily mettings
+                                </p>   
+                        </article>
+                        <div class="descritption">
+                            <article>
+                                <h3> Languages</h3>
+                                <ul>
+                                    <li> Html / Css</li>
+                                    <li> Php </li>
+                                    <li> Python </li>
+                                    <li> C </li>
+                                    <li> Postgresql </li>
+                                    <li> Markdown </li>
+                                </ul>
+                            </article>
+                            <article> 
+                                <h3> Tools</h3>
+                                <ul>
+                                    <li> Figma</li>
+                                    <li> Trello </li>
+                                    <li> Gloomaps</li>
+                                    <li> Github / Gitlab </li>
+                                    <li> Visual Studio Code </li>
+                                    <li> Daily meetings </li>
+                                    <li> NiHost </li>
+                                </ul>
+                            </article>
+                        </div>
+                    </section>
                     <article class="img_box">
-                        <img class="carrousel_p1 img_to_full" src="./images/profil_pic.jpeg" alt="text">
+                        <img class="carrousel_p1 img_to_full" src="./images/Regalouzz/index.png" alt="text">
                         <div class="btn_box">
                             <button class="prev1"> Previous</button>
                             <button class="next1"> Next </button>
@@ -96,22 +135,77 @@
                 </section>
                 <section id="project2" class="project">
                     <article class="img_box">
-                        <img class="carrousel_p2 img_to_full" src="./images/profil_pic.jpeg" alt="text">
+                        <img class="carrousel_p2 img_to_full" src="./images/Senpa/senpa.png" alt="text">
                         <div class="btn_box">
                             <button class="prev2"> Previous</button>
                             <button class="next2"> Next </button>
                         </div>
                     </article>
-                    <article class="slide_right"> 
-                        <p> test</p>
-                    </article>
+                    <section class="slide_right"> 
+                        <h2> <a target="_blank" href="https://github.com/aspenne/Senpa"> Senpa</a></h2>
+                        <article>
+                                <h3> Description</h3>
+                                <p> This project consists in creating a discord bot written in python.<br>
+                                    This bot allows to: moderate/ recover statistics/ improve user comfort...<br>
+                                    This bot was designed with the help of the discord API ( discord.py ) and so the script was created with this one.<br>
+                                    With this bot I decided to create documentation to allow the user to see all the commands, their syntaxes and their utilities. <br>
+                                </p>   
+                        </article>
+                        <div class="descritption">
+                            <article>
+                                <h3> Languages</h3>
+                                <ul>
+                                    <li> Html / Css / Javascript</li>
+                                    <li> Python </li>
+                                    <li> Markdown </li>
+                                </ul>
+                            </article>
+                            <article> 
+                                <h3> Tools</h3>
+                                <ul>
+                                    <li> Discord API </li>
+                                    <li> Discord </li>
+                                    <li> Github </li>
+                                    <li> Visual Studio Code </li>
+                                </ul>
+                            </article>
+                        </div>
+                    </section>
                 </section>
                 <section id="project3" class="project">
-                    <article class="slide_left">
-                        <p> test</p>
-                    </article>
+                    <section class="slide_left">
+                        <h2> <a target="_blank" href="https://github.com/aspenne/Portfolio"> My Portfolio </a> </h2>
+                        <article>
+                                <h3> Description</h3>
+                                <p> This is My web Portfolio !<br>
+                                    I wanted to update my old web portfolio, which I had created with a cms ( wordpress ).<br>
+                                    In this portfolio I wanted to show my front-end abilities especially.<br>
+                                    In this portfolio you can find these 4 categories: About me, My Projects, My CV and a contact form.<br>
+                                    In this project I really used the git tool the best I could for later on in a bigger project.<br>
+                                    For my next website project I think I’ll try to develop using React! Because it’s very used in business today <br>
+                                
+                                </p>   
+                        </article>
+                        <div class="descritption">
+                            <article>
+                                <h3> Languages</h3>
+                                <ul>
+                                    <li> Html / Css / Javascript</li>
+                                    <li> Markdown </li>
+                                </ul>
+                            </article>
+                            <article> 
+                                <h3> Tools</h3>
+                                <ul>
+                                    <li> Github </li>
+                                    <li> Visual Studio Code </li>
+                                    <li> EmailJs </li>
+                                </ul>
+                            </article>
+                        </div>
+                    </section>
                     <article class="img_box">
-                        <img class="carrousel_p3 img_to_full" src="./images/profil_pic.jpeg" alt="text">
+                        <img class="carrousel_p3 img_to_full" src="./images/Portfolio/css1.png" alt="text">
                         <div class="btn_box">
                             <button class="prev3"> Previous</button>
                             <button class="next3"> Next </button>
