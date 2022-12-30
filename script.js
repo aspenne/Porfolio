@@ -30,18 +30,18 @@ card.addEventListener("mouseout", () => {
 
 /***** White point *********/
 
-// width and height of the window
-var window_width = window.innerWidth;
-var window_height = window.innerHeight;
-
 function white() {
+
+    // width and height of the header
+    var header_width = document.getElementsByTagName("header")[0].clientWidth;
+    var header_height = document.getElementsByTagName("header")[0].clientHeight;
 
     // width and height of the point
     const width = parseInt(`${Math.floor(Math.random() * 30)}`);
 
     // position x and y of the point
-    const x = parseInt(`${Math.floor(Math.random() * window_width) - 50}`);
-    const y = parseInt(`${Math.floor(Math.random() * window_height) - 50}`);
+    const x = parseInt(`${Math.floor(Math.random() * header_width) - 50}`);
+    const y = parseInt(`${Math.floor(Math.random() * header_height) - 50}`);
 
     const white = document.createElement("div");
     
@@ -60,8 +60,10 @@ function white() {
 function deleteWhite() {
     const white = document.querySelectorAll(".white");
 
-    for (var i = 0; i < 10; i++) {
-        white[i].remove();
+    if (!(document.querySelector('.white_point').childNodes.length <= 20)) {
+        for (var i = 0; i < 10; i++) {
+            white[i].remove();
+        }
     }
 }
 
@@ -342,19 +344,6 @@ window.addEventListener("scroll", () => {
         sliding_left_1[0].classList.remove("left_apparition");
         sliding_left_1[0].classList.add("reverse_left");
     }
-
-    if (scrollTop > ( scrollTop + topElementToTopviewport).toFixed() - clientHeight * 0.80) {
-        if (sliding_left_1[0].classList.contains("reverse_left")) {
-            sliding_left_1[0].classList.remove("reverse_left");
-        }
-        sliding_left_1[0].classList.add("left_apparition");
-    }
-
-    // if we already scroll enough to activate the animation and we scroll back we remove the animation left_apparition and add the animation reverse_left
-    if ( (sliding_left_1[0].classList.contains("left_apparition")) && (scrollTop < (( scrollTop + topElementToTopviewport).toFixed() - clientHeight * 0.80)) ) {
-        sliding_left_1[0].classList.remove("left_apparition");
-        sliding_left_1[0].classList.add("reverse_left");
-    }
 });
 
 /************** Slide to right 2 project *****************/
@@ -417,41 +406,70 @@ window.addEventListener("scroll", () => {
         sliding_left_2[1].classList.remove("left_apparition");
         sliding_left_2[1].classList.add("reverse_left");
     }
-
-    if (scrollTop > ( scrollTop + topElementToTopviewport).toFixed() - clientHeight * 0.80) {
-        if (sliding_left_2[1].classList.contains("reverse_left")) {
-            sliding_left_2[1].classList.remove("reverse_left");
-        }
-        sliding_left_2[1].classList.add("left_apparition");
-    }
-
-    // if we already scroll enough to activate the animation and we scroll back we remove the animation left_apparition and add the animation reverse_left
-    if ( (sliding_left_2[1].classList.contains("left_apparition")) && (scrollTop < (( scrollTop + topElementToTopviewport).toFixed() - clientHeight * 0.80)) ) {
-        sliding_left_2[1].classList.remove("left_apparition");
-        sliding_left_2[1].classList.add("reverse_left");
-    }
 });
 
 // For the future I would like to concatenate the 3 functions in 2 functions if i want to add more projects
 
 /************** changing image project *****************/
 
-const image_to_switch = document.querySelector(".carrousel_p1");
+let iteration_img1 = 0;
+let iteration_img2 = 0;
+let iteration_img3 = 0;
 
-const image_project1 = ["images/evangelion.jpg", "images/nets.jpg", "images/chat_gpt.jpg", "images/europe.jpg", "images/profil_pic.jpeg"];
-const btn_prev1 = document.querySelector(".prev1");
+const image_to_switch1 = document.querySelector(".carrousel_p1");
+const image_to_switch2 = document.querySelector(".carrousel_p2");
+const image_to_switch3 = document.querySelector(".carrousel_p3");
+
+const image_project1 = ["images/Regalouzz/index.png", "images/Regalouzz/shop.png", "images/Regalouzz/database.png", "images/Regalouzz/pgsql.png",
+                        "images/Regalouzz/pdo.png", "images/Regalouzz/apache_postgresql.png", "images/Regalouzz/nihost.png"];
+const image_project2 = ["images/Senpa/senpa.png", "images/Senpa/documentation.png", "images/Senpa/unban.png", "images/Senpa/kick.png", "images/Senpa/rankboard.png", 
+                        "images/Senpa/ban_list_cmd.png", "images/Senpa/info_serv_cmd.png", "images/Senpa/roll_cmd.png", "images/Senpa/rankboard_cmd.png", ];
+const image_project3 = ["images/Portfolio/css1.png", "images/Portfolio/email_js_code.png", "images/Portfolio/email_js_console.png", "images/Portfolio/header.png", 
+                        "images/Portfolio/header_btn.png", "images/Portfolio/white.png"];
+
 const btn_next1 = document.querySelector(".next1");
-var iteration_img1 = 0;
+const btn_prev1 = document.querySelector(".prev1");
 
-btn_next1.addEventListener("click", () => {
-    iteration_img1++;
-    var index_img = image_project1[iteration_img1 % image_project1.length];
+btn_next1.addEventListener("click", () => nextImage(iteration_img1, image_project1, image_to_switch1, 1));
+btn_prev1.addEventListener("click", () => PreviousImage(iteration_img1, image_project1, image_to_switch1, 1));
+
+const btn_next2 = document.querySelector(".next2");
+const btn_prev2 = document.querySelector(".prev2");
+
+btn_next2.addEventListener("click", () => nextImage(iteration_img2, image_project2, image_to_switch2, 2));
+btn_prev2.addEventListener("click", () => PreviousImage(iteration_img2, image_project2, image_to_switch2, 2));
+
+const btn_next3 = document.querySelector(".next3");
+const btn_prev3 = document.querySelector(".prev3");
+
+btn_next3.addEventListener("click", () => nextImage(iteration_img3, image_project3, image_to_switch3, 3));
+btn_prev3.addEventListener("click", () => PreviousImage(iteration_img3, image_project3, image_to_switch3, 3));
+
+
+function nextImage(iteration_img, img_project, image_to_switch){
+
+    switch ( arguments[3] ) {
+        case 1:
+            iteration_img1++;
+            iteration_img++;
+            break;
+        case 2:
+            iteration_img2++;
+            iteration_img++;
+            break;
+        case 3:
+            iteration_img3++;
+            iteration_img++;
+            break;
+    }
+
+    var index_img = img_project[iteration_img % img_project.length];
 
     setTimeout(() => {
         image_to_switch.src = index_img
     }, 500);
     
-    switch (iteration_img1 % 4) {
+    switch (iteration_img % 4) {
         case 1:
             image_to_switch.style.animation = "translate-to-top 1s";
             break;
@@ -465,22 +483,52 @@ btn_next1.addEventListener("click", () => {
             image_to_switch.style.animation = "translate-to-left 1s";
             break;
     }
-});
+}
 
-btn_prev1.addEventListener("click", () => {
-    iteration_img1--;
+function PreviousImage(iteration_img, img_project, image_to_switch){
+    switch ( arguments[3]) {
+        case 1:
+            iteration_img1--;
+            iteration_img--;
+            break;
+        case 2:
+            iteration_img2--;
+            iteration_img--;
+            break;
+        case 3:
+            iteration_img3--;
+            iteration_img--;
+            break;
+    }
 
     // if the iteration is negative we set it to the last index of the array
-    if ( iteration_img1 < 0 )  {
-        iteration_img1 = 3;
+    if ( iteration_img < 0 )  {
+
+    switch ( arguments[3]) {
+        case 1:
+            iteration_img1 = 3;
+            iteration_img = 3;
+            break;
+        case 2:
+            iteration_img2 = 3;
+            iteration_img = 3;
+            break;
+        case 3:
+            iteration_img3 = 3;
+            iteration_img = 3;
+            break;
+        }
     }
-    var index_img = image_project1[iteration_img1 % image_project1.length];
+
+    console.log(iteration_img);
+
+    var index_img = img_project[iteration_img % img_project.length];
 
     setTimeout(() => {
         image_to_switch.src = index_img
     }, 500);
 
-    switch (iteration_img1 % 4) {
+    switch (iteration_img % 4) {
         case 1:
             image_to_switch.style.animation = "translate-to-top 1s";
             break;
@@ -494,37 +542,33 @@ btn_prev1.addEventListener("click", () => {
             image_to_switch.style.animation = "translate-to-left 1s";
             break;
     }
-});
-
-
-const image_project2 = ["images/evangelion.jpg", "images/nets.jpg", "images/chat_gpt.jpg", "images/dall_e.jpg", "images/github_copilot.png"];
-
+}
 
 /************** zoom image project *****************/
 
 // img box, image and content of the project 1
 const img_box_p1 = document.querySelector("#project1 > article.img_box");
 const image_p1 = document.querySelector("#project1 > article > img");
-const content_p1 = document.querySelector("#project1 > article.slide_left");
+const content_p1 = document.querySelector("#project1 > section.slide_left");
 const btn_box_p1 = document.querySelector("#project1 > article > div.btn_box");
 
 
 // img box, image and content of the project 2
 const img_box_p2 = document.querySelector("#project2 > article.img_box");
 const image_p2 = document.querySelector("#project2 > article > img");
-const content_p2 = document.querySelector("#project2 > article.slide_right");
+const content_p2 = document.querySelector("#project2 > section.slide_right");
 const btn_box_p2 = document.querySelector("#project2 > article > div.btn_box");
 
 
 // img box, image and content of the project 3
 const img_box_p3 = document.querySelector("#project3 > article.img_box");
 const image_p3 = document.querySelector("#project3 > article > img");
-const content_p3 = document.querySelector("#project3 > article.slide_left");
+const content_p3 = document.querySelector("#project3 > section.slide_left");
 const btn_box_p3 = document.querySelector("#project3 > article > div.btn_box");
 
 image_p1.addEventListener("click", () => change_size_image(img_box_p1, image_p1, content_p1, btn_box_p1));
 image_p2.addEventListener("click", () => change_size_image(img_box_p2, image_p2, content_p2, btn_box_p2));
-//image_p3.addEventListener("click", () => change_size_image(img_box_p3, image_p3, content_p3, btn_box_p3));
+image_p3.addEventListener("click", () => change_size_image(img_box_p3, image_p3, content_p3, btn_box_p3));
 
 var full_size = false;
 var temp_full_size = false;
@@ -532,6 +576,8 @@ var temp_full_size = false;
 function change_size_image(img_box, image, content, btn_box){
 
     if ( full_size == false ) {
+
+        image.classList.add("none");
 
         // for later : change the animation, more smooth 
         content.style.display = "none";
@@ -549,9 +595,12 @@ function change_size_image(img_box, image, content, btn_box){
 
         // here i use a temporary variable to avoid the 2nd part of the function to be called again
         temp_full_size = true
+
     } 
 
     if ( full_size == true) {
+
+        image.classList.remove("none");
 
         content.style.display = "block"
             
@@ -567,6 +616,7 @@ function change_size_image(img_box, image, content, btn_box){
         btn_box.style.top = "85%";
 
         full_size = false
+
     }
 
     full_size = temp_full_size
@@ -605,9 +655,13 @@ function change_cv_color(article) {
         last_liste_temp = liste;
     }, 500);
 
-
+    if (liste.style.animation == ('1s ease 0s 1 normal none running close-show')) {
+        liste.style.animation = ('');
+    }
     
-    liste.style.animation = '1s close-show ease';
+    setTimeout(() => {
+        liste.style.animation = '1s close-show ease';
+    }, 0001);
 
     // for the image
 
@@ -895,9 +949,9 @@ function sendMail(){
             document.querySelector('#lastname').value = '';
             document.querySelector('#mail').value = '';
             document.querySelector('#message').value = '';
-            console.log('success', res.status);
+            //console.log('success', res.status);
             }).catch((err) => {
-                console.log('failed', err);
+                //console.log('failed', err);
         });
 
     }
