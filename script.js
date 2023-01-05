@@ -679,28 +679,28 @@ function change_cv_color(article) {
 
     switch (className) {
         case 'cv_about':
-            img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_About.jpg';
+            img.src = './images/CV/MICHELO_AXEL_CV_Anglais_About.jpg';
             break;
         case 'cv_skills':
-            img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Skills.jpg';
+            img.src = './images/CV/MICHELO_AXEL_CV_Anglais_Skills.jpg';
             break;
         case 'cv_training':
-            img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Training.jpg';
+            img.src = './images/CV/MICHELO_AXEL_CV_Anglais_Training.jpg';
             break;
         case 'cv_projects':
-            img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Projects.jpg';
+            img.src = './images/CV/MICHELO_AXEL_CV_Anglais_Projects.jpg';
             break;
         case 'cv_work':
-            img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Work.jpg';
+            img.src = './images/CV/MICHELO_AXEL_CV_Anglais_Work.jpg';
             break;
         case 'cv_contact':
-            img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Contact.jpg';
+            img.src = './images/CV/MICHELO_AXEL_CV_Anglais_Contact.jpg';
             break;
         case 'cv_interests':
-            img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Personnal_interests.jpg';
+            img.src = './images/CV/MICHELO_AXEL_CV_Anglais_Personnal_interests.jpg';
             break;
         case 'cv_soft':
-            img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Soft.jpg';
+            img.src = './images/CV/MICHELO_AXEL_CV_Anglais_Soft.jpg';
             break;
         case 'cv_language':
             img.src = './images/CV/MICHELO_AXEL_CV_Anglais_Language.jpg';
