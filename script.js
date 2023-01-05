@@ -694,7 +694,7 @@ function change_cv_color(article) {
             img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Work.jpg';
             break;
         case 'cv_contact':
-            img.src = 'images/CV/MICHELO_AXEL_CV_ANGLAIS_Contact.jpg';
+            img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Contact.jpg';
             break;
         case 'cv_interests':
             img.src = './images/CV/MICHELO_AXEL_CV_ANGLAIS_Personnal_interests.jpg';
